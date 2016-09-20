@@ -39,7 +39,8 @@ src/ParticleExplosion.o: ../src/ParticleExplosion.cpp \
   /opt/local/include/SDL2/SDL_render.h \
   /opt/local/include/SDL2/SDL_system.h \
   /opt/local/include/SDL2/SDL_timer.h \
-  /opt/local/include/SDL2/SDL_version.h ../src/Screen.h
+  /opt/local/include/SDL2/SDL_version.h ../src/Screen.h ../src/Swarm.h \
+  ../src/Particle.h
 
 /opt/local/include/SDL2/SDL.h:
 
@@ -128,3 +129,7 @@ src/ParticleExplosion.o: ../src/ParticleExplosion.cpp \
 /opt/local/include/SDL2/SDL_version.h:
 
 ../src/Screen.h:
+
+../src/Swarm.h:
+
+../src/Particle.h:
