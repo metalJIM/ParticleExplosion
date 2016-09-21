@@ -21,4 +21,8 @@ Particle::~Particle() {
 	// TODO Auto-generated destructor stub
 }
 
+void Particle::update(){
+	const double speed = 0.01;
+}
+
 } /* namespace myparticle */

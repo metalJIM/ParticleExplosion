@@ -54,9 +54,6 @@ int main() {
 			screen.setPixel(x, y, red, green, blue);
 		}
 
-
-
-
 		/*for(int y=0; y < Screen::SCREEN_HEIGHT; y++){		//Block of colour
 			for(int x=0; x < Screen::SCREEN_WIDTH; x++){
 				screen.setPixel(x, y, red, green, blue);
@@ -74,10 +71,7 @@ int main() {
 		if (screen.processEvents() == false) {
 			break;
 		}
-
 	}
-
-
 	screen.close();
 
 	return 0;
