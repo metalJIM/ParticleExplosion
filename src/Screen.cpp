@@ -93,6 +93,11 @@ void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
 	m_buffer[(y * SCREEN_WIDTH) + x] = colour; //Transforms X,Y co-ordinates into an index into the buffer
 }
 
+void Screen::clear(){
+	memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+}
+
+
 void Screen::screenUpdate(){
 
 	SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH * sizeof(Uint32));
