@@ -9,7 +9,7 @@
 
 namespace myparticle {
 
-Swarm::Swarm() {
+Swarm::Swarm(): lastTime(0) {
 
 	m_pParticles = new Particle[NPARTICLES];
 }
@@ -18,11 +18,16 @@ Swarm::~Swarm() {
 	delete [] m_pParticles;
 }
 
-void Swarm::update(){
+void Swarm::update(int elapsed){         //iterating through each particle and updating individually
+
+	int interval = elapsed - lastTime;	//How much time has elapsed since last got the value
+
 
 	for(int i=0; i < Swarm::NPARTICLES; i++){
-		m_pParticles[i].update();
+		m_pParticles[i].update(interval);
 	}
+
+	lastTime = elapsed;
 
 }
 
