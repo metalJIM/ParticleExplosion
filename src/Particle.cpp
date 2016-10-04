@@ -17,9 +17,19 @@ Particle::Particle() :m_x(0), m_y(0) {         //Initializes to the center of th
 	m_x = ((2.0 * rand())/RAND_MAX) - 1;       //Initializing co-ordinates of each particles x and y positions to a random value between -1 and +1
 	m_y = ((2.0 * rand())/RAND_MAX) - 1;
 	*/
+		init();
 
-	m_direction = (2 * M_PI * rand())/RAND_MAX; //Choosing angle
-	m_speed = (0.0001 * rand())/RAND_MAX;		//Choosing speed
+}
+
+void Particle::init(){
+
+		m_x = 0;
+		m_y = 0;
+
+		m_direction = (2 * M_PI * rand())/RAND_MAX; //Choosing angle
+		m_speed = (0.04 * rand())/RAND_MAX;		//Choosing speed
+
+		m_speed *= m_speed;
 
 }
 
@@ -29,11 +39,18 @@ Particle::~Particle() {
 
 void Particle::update(int interval){    //Where the particles are being moved
 
+	m_direction += interval * 0.0003;
+
 	double xspeed =  m_speed * cos(m_direction);
 	double yspeed =  m_speed * sin(m_direction);
 
 	m_x += xspeed * interval;		//The amount we move each particle by when we run the update method is proportional to the amount of time thats passed since we last moved the particle
 	m_y += yspeed * interval;		//Therefore ensuring similar speed on slower and faster systems --- jerky on slower systems but consistant
+
+	if (m_x < -1 || > 1 || m_y < -1 || m_y > 1){
+
+	}
+
 }
 
 } /* namespace myparticle */
