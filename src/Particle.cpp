@@ -39,7 +39,7 @@ Particle::~Particle() {
 
 void Particle::update(int interval){    //Where the particles are being moved
 
-	m_direction += interval * 0.0003;
+	m_direction += interval * 0.0004;
 
 	double xspeed =  m_speed * cos(m_direction);
 	double yspeed =  m_speed * sin(m_direction);
@@ -47,10 +47,13 @@ void Particle::update(int interval){    //Where the particles are being moved
 	m_x += xspeed * interval;		//The amount we move each particle by when we run the update method is proportional to the amount of time thats passed since we last moved the particle
 	m_y += yspeed * interval;		//Therefore ensuring similar speed on slower and faster systems --- jerky on slower systems but consistant
 
-	if (m_x < -1 || > 1 || m_y < -1 || m_y > 1){
-
+	if (m_x < -1 || m_x > 1 || m_y < -1 || m_y > 1){
+		init();
 	}
 
+	if (rand() < RAND_MAX/100){
+		init();
+	}
 }
 
 } /* namespace myparticle */
